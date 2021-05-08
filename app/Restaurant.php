@@ -9,14 +9,14 @@ use Illuminate\Support\Facades\Auth;
 
 class Restaurant extends Model
 {
-
     /**
      * Get restaurants list request.
      *
      * @param  array  $requestValues  Get Latitude and Longitud values
      * @return \Illuminate\Http\Response
      */
-    public static function getRestaurantsByCoordinates($requestValues) {
+    public static function getRestaurantsByCoordinates($requestValues) 
+    {
         $client = new Client();
         $transaction = new Transaction();
 

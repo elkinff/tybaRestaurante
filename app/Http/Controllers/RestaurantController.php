@@ -29,8 +29,10 @@ class RestaurantController extends Controller
      * The user has been registered.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
-    public function index(Request $request) {
+    public function index(Request $request) 
+    {
         $requestValues = $request->all();
         $validator = $this->validator($requestValues);
 

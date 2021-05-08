@@ -27,6 +27,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /**
+     * Generate new token to authentication
+     *
+     * @var string
+     */
     public function generateToken()
     {
         $this->api_token = str_random(60);

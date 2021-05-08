@@ -16,19 +16,11 @@ class Transaction extends Model
         'description', 'user_id'
     ];
 
-    public function setUpdatedAt($value)
+    public function saveTransaction($description) 
     {
-      return NULL;
-    }
-    
-    public function saveTransaction($description) {
         $this->description = $description;
         $this->user_id = Auth::user()->id;
         $this->save();
-    }
-
-    public function crearPared() {
-        dd(Auth::user());
     }
 }
 

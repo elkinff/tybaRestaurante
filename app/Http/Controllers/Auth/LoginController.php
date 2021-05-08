@@ -50,12 +50,10 @@ class LoginController extends Controller
      */
     protected function validateLogin(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+        return Validator::make($request->all(), [
             $this->username() => 'required|string',
             'password' => 'required|string',
         ]);
-
-        return $validator;
     }
 
      /**
@@ -80,7 +78,7 @@ class LoginController extends Controller
                     'data' => $user->toArray(),
                 ]);
             }
-            return response()->json(['error' => 'Invalid Credentials'], 401);
+            return response()->json(['error' => 'Invalid Credentials. Please check your email and password'], 401);
         }
 
         return response()->json(['errors' => $validator->errors()], 400);
