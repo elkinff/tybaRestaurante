@@ -1,3 +1,20 @@
+## Descripción del proyecto
+
+El api restful consta de 5 endpoints para registar usuarios, iniciar sesión, cerrar sesión, consulta de restaurantes cercanos por coordenadas y consulta del historial de transacciones que se hagan en el api (registro, inicio y cierre de sesion y consulta de restaurantes). Todos los endpoints tienen validación de datos y de autenticacion.
+
+Para la autenticación del api se utilizo el método HMAC (Codigo de autorización de mensajes basado en hash) https://en.wikipedia.org/wiki/HMAC, el cual es utilizado en todos los endpoints del api con exepción del login y registro de usuarios.
+
+El proyecto se realizó con php 7.2 y con el framework Laravel, ademas se utilizo docker para empaquetar los servicios de la base de datos mysql, el servidor web y el codigo de la aplicacion laravel. Para poder probar el api basta con correr el comando "docker-compose up -d" de esta forma levantará los servicios.
+
+La documentación general del api se encuentra en el siguiente link: https://documenter.getpostman.com/view/269246/TzRRDocm
+
+## El flujo general es:
+
+- Registro de usuario, una vez se registra obtiene el "api_token" el cual se debera enviar en los endpoints de GET restaurants, GET transactions y logout.
+- Si ya esta regitrado puede iniciar sesion y de la misma forma obtener el api_token para acceder a los endpoints.
+
+El api_token se debe enviar en la cabecera (Authorization) de los endpoints descritos anteriormente.
+
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
@@ -56,3 +73,5 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
